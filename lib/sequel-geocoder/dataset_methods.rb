@@ -59,7 +59,7 @@ module Sequel::Plugins::Geocoder
     # the +:select+ and +:order+ options take an array of objects suitable to
     # use in a Sequel::Dataset.
     def geocoder_near_ds(latitude, longitude, radius = 20, options = {})
-      options[:units] ||= (geocoder_options[:units] || Geocoder.config.units)
+      options[:units] ||= Geocoder.config.units
       options[:units] = options[:units].to_sym if options[:units]
       options[:exclude] = options[:exclude].pk if options[:exclude].respond_to?(:pk)
 
